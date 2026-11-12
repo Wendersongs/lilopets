@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lilopets | Tosa na tesoura com a Enice</title>
+<meta name="description" content="Lilopets: tosa na tesoura feita com carinho pela Enice, para cães de todas as raças.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ===== CORES (troque aqui se quiser mudar a paleta) ===== */
+  :root{
+    --rosa:#F2789F; --rosa-escuro:#D9577F; --rosa-claro:#FFE4EC;
+    --creme:#FFF8F3; --menta:#CDEFE3; --lilas:#E9E0FF;
+    --texto:#4A3236; --texto-suave:#7A6266; --branco:#fff;
+    --raio:28px; --sombra:0 12px 30px rgba(217,87,127,.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Nunito,system-ui,sans-serif;color:var(--texto);background:var(--creme);line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.marca{font-family:Fredoka,Nunito,sans-serif;line-height:1.15}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{width:min(1100px,100% - 32px);margin-inline:auto}
+
+  /* Topo */
+  header{position:sticky;top:0;z-index:20;background:rgba(255,248,243,.85);backdrop-filter:blur(10px);border-bottom:1px solid #f6dfe5}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .marca{display:flex;align-items:center;gap:10px;font-size:1.6rem;font-weight:700;color:var(--rosa-escuro);text-decoration:none}
+  .marca svg{width:44px;height:44px}
+  .nav ul{display:flex;gap:26px;list-style:none;font-weight:700}
+  .nav ul a{text-decoration:none;color:var(--texto-suave)}
+  .nav ul a:hover{color:var(--rosa-escuro)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--rosa);color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:999px;box-shadow:var(--sombra);transition:transform .2s,background .2s}
+  .btn:hover{transform:translateY(-2px);background:var(--rosa-escuro)}
+  .btn.claro{background:#fff;color:var(--rosa-escuro)}
+  .btn.peq{padding:10px 18px;font-size:.95rem}
+
+  /* Hero */
+  .hero{position:relative;padding:72px 0 90px}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .selo{display:inline-block;background:var(--menta);color:#2E6B57;font-weight:700;font-size:.9rem;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.3rem,5.5vw,3.8rem);margin-bottom:18px}
+  .hero h1 span{color:var(--rosa)}
+  .hero p{font-size:1.15rem;color:var(--texto-suave);max-width:520px;margin-bottom:30px}
+  .hero-arte{position:relative;aspect-ratio:1;max-width:440px;justify-self:center;width:100%}
+  .hero-arte .bolha{position:absolute;inset:6%;background:var(--rosa-claro);border-radius:46% 54% 50% 50%/55% 45% 55% 45%;animation:flutua 7s ease-in-out infinite}
+  .hero-arte svg.logo-grande{position:absolute;inset:16%;width:68%;height:68%;filter:drop-shadow(0 18px 24px rgba(217,87,127,.25))}
+  .mini{position:absolute;width:54px;opacity:.9}
+  .mini.a{top:0;right:8%;transform:rotate(20deg)}
+  .mini.b{bottom:4%;left:0;transform:rotate(-25deg);width:42px}
+  @keyframes flutua{50%{border-radius:55% 45% 45% 55%/45% 55% 45% 55%;transform:translateY(-8px)}}
+
+  /* Seções */
+  section{padding:84px 0}
+  .titulo{text-align:center;max-width:620px;margin:0 auto 48px}
+  .titulo small{display:block;color:var(--rosa);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+  .titulo h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:12px}
+  .titulo p{color:var(--texto-suave)}
+
+  /* Sobre */
+  #sobre{background:#fff}
+  .sobre{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .foto-enice{aspect-ratio:4/5;border-radius:var(--raio);background:linear-gradient(160deg,var(--lilas),var(--rosa-claro));display:grid;place-items:center;overflow:hidden;box-shadow:var(--sombra)}
+  .foto-enice picture{width:100%;height:100%}
+  .foto-enice img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+  .vazio{text-align:center;color:var(--texto-suave);font-weight:600;padding:20px}
+  .vazio svg{display:block;width:70px;margin:0 auto 10px;opacity:.7}
+  .sobre h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:16px}
+  .sobre p{color:var(--texto-suave);margin-bottom:14px;font-size:1.08rem}
+  .assinatura{font-family:Fredoka,sans-serif;font-size:1.4rem;color:var(--rosa-escuro);margin-top:8px}
+
+  /* Serviço */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:#fff;border-radius:var(--raio);padding:32px 28px;box-shadow:var(--sombra);transition:transform .25s}
+  .card:hover{transform:translateY(-6px)}
+  .icone{width:60px;height:60px;border-radius:20px;display:grid;place-items:center;font-size:1.8rem;margin-bottom:18px}
+  .card:nth-child(1) .icone{background:var(--rosa-claro)}
+  .card:nth-child(2) .icone{background:var(--menta)}
+  .card:nth-child(3) .icone{background:var(--lilas)}
+  .card h3{font-size:1.35rem;margin-bottom:8px}
+  .card p{color:var(--texto-suave)}
+  .destaque{margin-top:40px;background:var(--rosa);color:#fff;border-radius:var(--raio);padding:36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .destaque h3{font-size:1.6rem}
+  .destaque p{opacity:.92}
+
+  /* Galeria */
+  #trabalhos{background:#fff}
+  .galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .galeria figure{aspect-ratio:1;border-radius:24px;overflow:hidden;background:var(--rosa-claro);display:grid;place-items:center;position:relative}
+  .galeria figure:nth-child(3n+2){background:var(--menta)}
+  .galeria figure:nth-child(3n){background:var(--lilas)}
+  .galeria img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .galeria figure:hover img{transform:scale(1.06)}
+  .galeria figcaption{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.9);padding:4px 12px;border-radius:999px;font-size:.85rem;font-weight:700}
+
+  .galeria picture{width:100%;height:100%}
+  .videos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
+  .videos video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:24px;background:var(--rosa-claro);display:block}
+  @media (max-width:760px){.videos{grid-template-columns:repeat(2,1fr);gap:12px}}
+
+  /* Como funciona */
+  .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:p}
+  .passo{text-align:center;padding:10px 16px}
+  .passo::before{counter-increment:p;content:counter(p);display:grid;place-items:center;width:56px;height:56px;margin:0 auto 16px;border-radius:50%;background:var(--rosa);color:#fff;font-family:Fredoka,sans-serif;font-size:1.5rem;font-weight:700}
+  .passo h3{margin-bottom:6px;font-size:1.25rem}
+  .passo p{color:var(--texto-suave)}
+
+  /* Contato */
+  #contato{background:linear-gradient(160deg,var(--rosa),var(--rosa-escuro));color:#fff;border-radius:48px 48px 0 0}
+  #contato .titulo small{color:#FFE4EC}
+  #contato .titulo p{color:#FFE4EC}
+  .contatos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .contato{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:26px;text-decoration:none;display:block;transition:background .2s}
+  a.contato:hover{background:rgba(255,255,255,.24)}
+  .contato strong{display:block;font-family:Fredoka,sans-serif;font-size:1.2rem;margin-bottom:4px}
+  .contato span{opacity:.9;word-break:break-word}
+  .contato .em{font-size:1.6rem;display:block;margin-bottom:8px}
+  footer{background:var(--rosa-escuro);color:#FFE4EC;text-align:center;padding:24px 16px;font-size:.92rem}
+
+  /* WhatsApp flutuante */
+  .zap{position:fixed;right:18px;bottom:18px;z-index:30;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.2);transition:transform .2s}
+  .zap:hover{transform:scale(1.08)}
+  .zap svg{width:32px;height:32px;fill:#fff}
+
+  /* Animação ao rolar */
+  .rev{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .rev.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rev{opacity:1;transform:none}.hero-arte .bolha{animation:none}html{scroll-behavior:auto}}
+
+  /* Celular */
+  @media (max-width:860px){
+    .nav ul{display:none}
+    .hero{padding:40px 0 60px}
+    .hero .wrap,.sobre{grid-template-columns:1fr;gap:32px}
+    .hero-arte{max-width:300px;order:-1}
+    .cards,.passos,.contatos{grid-template-columns:1fr}
+    .galeria{grid-template-columns:repeat(2,1fr);gap:12px}
+    section{padding:64px 0}
+    .destaque{padding:28px}
+    .foto-enice{max-width:380px;margin:0 auto;width:100%}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap nav">
+    <a href="#inicio" class="marca" aria-label="Lilopets, início">
+      <svg viewBox="0 0 120 120" aria-hidden="true">  <circle cx="60" cy="60" r="58" fill="#FFE4EC"/>
+  <g fill="#F2789F">
+    <ellipse cx="33" cy="47" rx="10" ry="13" transform="rotate(-25 33 47)"/>
+    <ellipse cx="50" cy="32" rx="10.5" ry="13.5" transform="rotate(-8 50 32)"/>
+    <ellipse cx="70" cy="32" rx="10.5" ry="13.5" transform="rotate(8 70 32)"/>
+    <ellipse cx="87" cy="47" rx="10" ry="13" transform="rotate(25 87 47)"/>
+    <path d="M60 98 C 40 86, 28 74, 30 64 C 32 54, 46 50, 52 58 C 55 61, 58 63, 60 66 C 62 63, 65 61, 68 58 C 74 50, 88 54, 90 64 C 92 74, 80 86, 60 98 Z"/>
+  </g>
+  <g fill="#fff" opacity=".55">
+    <ellipse cx="47" cy="27" rx="3.2" ry="4.5" transform="rotate(-8 47 27)"/>
+    <ellipse cx="67" cy="27" rx="3.2" ry="4.5" transform="rotate(8 67 27)"/>
+    <ellipse cx="42" cy="64" rx="4" ry="5.5" transform="rotate(-30 42 64)"/>
+  </g>
+  <g fill="#5A3A3F">
+    <circle cx="52" cy="76" r="2.6"/><circle cx="68" cy="76" r="2.6"/>
+  </g>
+  <path d="M56 81 Q60 85 64 81" stroke="#5A3A3F" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <g fill="#FFB3C7"><ellipse cx="46" cy="81" rx="3.5" ry="2.2"/><ellipse cx="74" cy="81" rx="3.5" ry="2.2"/></g></svg>Lilopets
+    </a>
+    <ul>
+      <li><a href="#sobre">A Enice</a></li>
+      <li><a href="#servico">Serviço</a></li>
+      <li><a href="#trabalhos">Trabalhos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <!-- TROCAR: número do WhatsApp (só números, com 55 + DDD) -->
+    <a class="btn peq" href="https://wa.me/5562992383143" target="_blank" rel="noopener">Agendar</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div class="rev">
+        <span class="selo">✂️ Tosa na tesoura · todas as raças</span>
+        <h1>Seu pet lindo, cheiroso e <span>tratado com carinho</span></h1>
+        <p>Na Lilopets, a Enice faz cada tosa na tesoura com calma e atenção aos detalhes, respeitando o jeitinho e o tempo de cada cão.</p>
+        <a class="btn" href="#contato">Quero agendar 🐾</a>
+      </div>
+      <div class="hero-arte" aria-hidden="true">
+        <div class="bolha"></div>
+        <svg class="logo-grande" viewBox="0 0 120 120">  <circle cx="60" cy="60" r="58" fill="#FFE4EC"/>
+  <g fill="#F2789F">
+    <ellipse cx="33" cy="47" rx="10" ry="13" transform="rotate(-25 33 47)"/>
+    <ellipse cx="50" cy="32" rx="10.5" ry="13.5" transform="rotate(-8 50 32)"/>
+    <ellipse cx="70" cy="32" rx="10.5" ry="13.5" transform="rotate(8 70 32)"/>
+    <ellipse cx="87" cy="47" rx="10" ry="13" transform="rotate(25 87 47)"/>
+    <path d="M60 98 C 40 86, 28 74, 30 64 C 32 54, 46 50, 52 58 C 55 61, 58 63, 60 66 C 62 63, 65 61, 68 58 C 74 50, 88 54, 90 64 C 92 74, 80 86, 60 98 Z"/>
+  </g>
+  <g fill="#fff" opacity=".55">
+    <ellipse cx="47" cy="27" rx="3.2" ry="4.5" transform="rotate(-8 47 27)"/>
+    <ellipse cx="67" cy="27" rx="3.2" ry="4.5" transform="rotate(8 67 27)"/>
+    <ellipse cx="42" cy="64" rx="4" ry="5.5" transform="rotate(-30 42 64)"/>
+  </g>
+  <g fill="#5A3A3F">
+    <circle cx="52" cy="76" r="2.6"/><circle cx="68" cy="76" r="2.6"/>
+  </g>
+  <path d="M56 81 Q60 85 64 81" stroke="#5A3A3F" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <g fill="#FFB3C7"><ellipse cx="46" cy="81" rx="3.5" ry="2.2"/><ellipse cx="74" cy="81" rx="3.5" ry="2.2"/></g></svg>
+        <svg class="mini a" viewBox="0 0 120 120"><g fill="#F2789F" opacity=".5"><ellipse cx="33" cy="47" rx="10" ry="13"/><ellipse cx="50" cy="32" rx="10.5" ry="13.5"/><ellipse cx="70" cy="32" rx="10.5" ry="13.5"/><ellipse cx="87" cy="47" rx="10" ry="13"/><path d="M60 98C40 86 28 74 30 64c2-10 16-14 22-6 3 3 6 5 8 8 2-3 5-5 8-8 6-8 20-4 22 6 2 10-10 22-30 34Z"/></g></svg>
+        <svg class="mini b" viewBox="0 0 120 120"><g fill="#8FD3BC"><ellipse cx="33" cy="47" rx="10" ry="13"/><ellipse cx="50" cy="32" rx="10.5" ry="13.5"/><ellipse cx="70" cy="32" rx="10.5" ry="13.5"/><ellipse cx="87" cy="47" rx="10" ry="13"/><path d="M60 98C40 86 28 74 30 64c2-10 16-14 22-6 3 3 6 5 8 8 2-3 5-5 8-8 6-8 20-4 22 6 2 10-10 22-30 34Z"/></g></svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap sobre">
+      <div class="foto-enice rev">
+        <picture><source srcset="fotos/enice.webp" type="image/webp"><img src="fotos/enice.jpg" alt="Enice, tosadora e dona da Lilopets" width="720" height="1247"></picture>
+      </div>
+      <div class="rev">
+        <div class="titulo" style="text-align:left;margin:0 0 8px"><small>Quem cuida do seu pet</small></div>
+        <h2>Oi, eu sou a Enice! 💕</h2>
+        <p>Sou a tosadora e dona da Lilopets. Meu trabalho é a tosa na tesoura: um corte feito à mão, com paciência, que valoriza o formato e a pelagem de cada cachorro.</p>
+        <p>Atendo todas as raças, dos pequenininhos aos grandões. Aqui cada pet é tratado como se fosse da família, sem pressa e com muito cuidado.</p>
+        <p class="assinatura">Enice · Lilopets</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="servico">
+    <div class="wrap">
+      <div class="titulo rev">
+        <small>O serviço</small>
+        <h2>Tosa na tesoura, feita à mão</h2>
+        <p>Um acabamento mais natural e caprichado, pensado para o seu pet.</p>
+      </div>
+      <div class="cards">
+        <article class="card rev"><div class="icone">✂️</div><h3>Tosa na tesoura</h3><p>Corte feito à mão, com acabamento delicado e personalizado para o estilo que você gosta.</p></article>
+        <article class="card rev"><div class="icone">🐕</div><h3>Todas as raças</h3><p>Do Shih Tzu ao Golden, do Poodle ao vira-lata: cada pelagem recebe o corte certo.</p></article>
+        <article class="card rev"><div class="icone">💗</div><h3>Com carinho</h3><p>Atendimento tranquilo, respeitando o tempo do pet para ele se sentir seguro.</p></article>
+      </div>
+      <div class="destaque rev">
+        <div><h3>Bora deixar seu pet um charme?</h3><p>Chama no WhatsApp e combine o melhor horário.</p></div>
+        <a class="btn claro" href="https://wa.me/5562992383143" target="_blank" rel="noopener">Falar com a Enice</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="trabalhos">
+    <div class="wrap">
+      <div class="titulo rev">
+        <small>Trabalhos</small>
+        <h2>Alguns clientes de quatro patas</h2>
+        <p>Um pouquinho do que sai da tesoura da Enice.</p>
+      </div>
+      <div class="galeria">
+        <figure class="rev"><picture><source srcset="fotos/pet1.webp" type="image/webp"><img src="fotos/pet1.jpg" alt="Shih tzu tosado na tesoura, com bandana laranja" loading="lazy" width="456" height="720"></picture></figure>
+        <figure class="rev"><picture><source srcset="fotos/pet3.webp" type="image/webp"><img src="fotos/pet3.jpg" alt="Yorkshire tosado, com bandana Super Mãe" loading="lazy" width="446" height="720"></picture></figure>
+        <figure class="rev"><picture><source srcset="fotos/pet4.webp" type="image/webp"><img src="fotos/pet4.jpg" alt="Cachorrinha com penteado de lacinhos rosa" loading="lazy" width="581" height="720"></picture></figure>
+        <figure class="rev"><picture><source srcset="fotos/pet5.webp" type="image/webp"><img src="fotos/pet5.jpg" alt="Penteado com tranças e laços vermelhos" loading="lazy" width="405" height="720"></picture></figure>
+        <figure class="rev"><picture><source srcset="fotos/pet6.webp" type="image/webp"><img src="fotos/pet6.jpg" alt="Shih tzu tosado, com bandana azul" loading="lazy" width="430" height="720"></picture></figure>
+        <figure class="rev"><picture><source srcset="fotos/pet7.webp" type="image/webp"><img src="fotos/pet7.jpg" alt="Spitz alemão (lulu) com lacinho e bandana" loading="lazy" width="405" height="720"></picture></figure>
+      </div>
+      
+      <div class="videos">
+        <video class="rev" src="fotos/video1.mp4" poster="fotos/video1-capa.jpg" muted loop playsinline autoplay preload="none" aria-label="Enice escovando e tosando na tesoura"></video>
+        <video class="rev" src="fotos/video2.mp4" poster="fotos/video2-capa.jpg" muted loop playsinline autoplay preload="none" aria-label="Lulu marrom depois da tosa"></video>
+        <video class="rev" src="fotos/video3.mp4" poster="fotos/video3-capa.jpg" muted loop playsinline autoplay preload="none" aria-label="Spitz branco com bandana de Páscoa"></video>
+        <video class="rev" src="fotos/video4.mp4" poster="fotos/video4-capa.jpg" muted loop playsinline autoplay preload="none" aria-label="Cachorrinha com laço azul, perfeitinha"></video>
+      </div>
+    </div>
+  </section>
+
+  <section id="como">
+    <div class="wrap">
+      <div class="titulo rev"><small>Como funciona</small><h2>Simples assim</h2></div>
+      <div class="passos">
+        <div class="passo rev"><h3>Chame no WhatsApp</h3><p>Conte a raça e como você gostaria do corte.</p></div>
+        <div class="passo rev"><h3>Agende o horário</h3><p>A gente combina o melhor dia para você e seu pet.</p></div>
+        <div class="passo rev"><h3>Busque seu pet lindo</h3><p>Tosado na tesoura, com todo o capricho.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <div class="titulo rev"><small>Contato</small><h2>Vamos agendar?</h2><p>Fale com a Enice pelo canal que preferir.</p></div>
+      <!-- TROCAR: contatos abaixo (WhatsApp, Instagram e endereço) -->
+      <div class="contatos">
+        <a class="contato rev" href="https://wa.me/5562992383143" target="_blank" rel="noopener"><span class="em">💬</span><strong>WhatsApp</strong><span>(62) 99238-3143</span></a>
+        <a class="contato rev" href="https://instagram.com/lilopets" target="_blank" rel="noopener"><span class="em">📸</span><strong>Instagram</strong><span>@lilopets</span></a>
+        <div class="contato rev"><span class="em">📍</span><strong>Endereço</strong><span>Rua Exemplo, 123 · Bairro · Cidade</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="ano">2026</span> Lilopets · Tosa na tesoura com carinho 🐾</footer>
+
+<!-- TROCAR: mesmo número do WhatsApp -->
+<a class="zap" href="https://wa.me/5562992383143" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold: .12});
+  document.querySelectorAll('.rev').forEach(el => io ? io.observe(el) : el.classList.add('on'));
+</script>
+</body>
+</html>
